@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Degree Position Job Application</title>
+     
+  <!-------------Linking to CSS Code------------>
+    <link rel="stylesheet" href="../CSS/jobapplication.css">
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>Job Application – Degree Post</h1>
+    <form id="jobApplicationForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="firstname">First Name *</label>
+          <input type="text" id="firstname" name="firstname" required placeholder="e.g. John">
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name *</label>
+          <input type="text" id="lastname" name="lastname" required placeholder="e.g. Doe">
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="e.g. john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="e.g. +91 9876543210">
+        </div>
+        <div class="form-group">
+          <label for="degree">Highest Degree *</label>
+          <select id="degree" name="degree" required>
+            <option value="">Select Degree</option>
+            <option value="bachelors">Bachelor’s</option>
+            <option value="masters">Master’s</option>
+            <option value="phd">PhD</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="university">University / College *</label>
+          <input type="text" id="university" name="university" required placeholder="e.g. University of X">
+        </div>
+        <div class="form-group">
+          <label for="graduation">Graduation Year *</label>
+          <input type="number" id="graduation" name="graduation" required placeholder="e.g. 2025" min="1950" max="2050">
+        </div>
+        <div class="form-group">
+          <label for="cover">Cover Letter</label>
+          <textarea id="cover" name="cover" rows="4" placeholder="Tell us why you're a great fit"></textarea>
+        </div>
+
+         <div class="form-group">
+          <label for="experience">Years of Experience</label>
+          <select id="experience" name="experience" required>
+            <option value="">Select Years</option>
+            <option value="0-1">0–1 years</option>
+            <option value="2-4">2–4 years</option>
+            <option value="5-7">5–7 years</option>
+            <option value="8-10">8–10 years</option>
+            <option value="10+">10+ years</option>
+          </select>
+        </div>
+
+        
+        <div class="form-group textarea-full">
+          <label for="cv">Upload Your CV *</label>
+          <input type="file" id="cv" name="cv" required accept=".pdf,.doc,.docx">
+        </div>
+      </div>
+
+       
+
+      <div class="actions">
+        <button type="reset">Reset</button>
+        <button type="submit">Apply Now</button>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div id="thankYou" style="display:none; margin-top:20px; padding:12px; background:#e0ffe8; border:1px solid #b2ffd4; border-radius:4px; color:#2c6b3f;">
+      ✅ Thank you! Your application has been submitted.
+    </div>
+  </div>
+
+  <script src="../javascript/jobapplication.js"></script>
+
+</body>
+</html>
+
+
+

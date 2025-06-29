@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Form</title>
+  <link rel="stylesheet" href="../CSS/login.css" />
+</head>
+<body>
+
+  <!-- Header loaded from external file -->
+  <div id="header-placeholder"></div>
+
+  <!-- Centered form container -->
+  <div class="main-content">
+    <div class="form-container">
+      <h2>LOGIN</h2>
+      <form class="login-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+      </form>
+      <div id="loginMessage" style="margin-top:10px; color: green; font-weight: bold;"></div>
+      <div class="signup-link">
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../javascript/header.js"></script>
+
+  <script>
+    document.querySelector(".login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+
+      // Save to localStorage
+      localStorage.setItem("loggedInUser", username);
+
+      // Show inline success message
+      document.getElementById("loginMessage").innerText = "✅ Logged in successfully!";
+
+      // Redirect after 2 seconds
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

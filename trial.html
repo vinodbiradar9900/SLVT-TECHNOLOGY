@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Gallery Like Uploaded Layout</title>
+  <style>
+
+/* Common style for all images (house and grid) */
+.gallery-item,
+.left-large {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img,
+.left-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* On hover: scale up and blur */
+.gallery-item:hover img,
+.left-large:hover img {
+  transform: scale(1.05);
+  filter: blur(2px) brightness(0.8);
+}
+
+/* Optional shadow effect on hover */
+.gallery-item:hover,
+.left-large:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+    .left-large {
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.left-large:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.left-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.left-large:hover img {
+  transform: scale(1.05);
+}
+
+/* Apply the same animation to all gallery items (already exists in your CSS, included here for clarity) */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #ccc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 40px;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .left-large {
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .left-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .right-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #ccc;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .eye-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      color: #ffcc00;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .gallery-item:hover .eye-icon {
+      opacity: 1;
+    }
+
+    .more-box {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .gallery-container {
+        grid-template-columns: 1fr;
+      }
+
+      .right-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery-container">
+    <!-- Left Large Image -->
+    <div class="left-large">
+      <img src="https://www.thekarnatakatourism.com/assets/img//resorts/bandipur-resort-2.webp" alt="Resort" />
+    </div>
+
+    <!-- Right Small Grid -->
+    <div class="right-grid">
+      <div class="gallery-item">
+        <img src="https://www.wildlifezone.org/images/animals/deer.jpg" alt="Deer" />
+        <div class="eye-icon">👁</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.wildlifezone.org/images/animals/elephant.jpg" alt="Elephant" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2019/02/03/19/44/campfire-3971472_960_720.jpg" alt="Campfire" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2021/01/18/18/04/road-5928954_960_720.jpg" alt="Road" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2018/09/04/10/19/forest-3653963_960_720.jpg" alt="Forest" />
+      </div>
+      <div class="gallery-item more-box" onclick="showMoreImages()">
+        <div>➕<br>View More Images</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extra Images Section -->
+  <div class="gallery-container hidden" id="moreImages" style="margin-top: 30px;">
+    <div class="left-large">
+      <img src="https://cdn.pixabay.com/photo/2020/01/31/07/08/nature-4809655_960_720.jpg" alt="Nature" />
+    </div>
+    <div class="right-grid">
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2020/06/11/03/56/elephant-5283142_960_720.jpg" alt="Elephant 2" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/12/54/jungle-1867275_960_720.jpg" alt="Jungle" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2017/07/09/14/56/jeep-2481595_960_720.jpg" alt="Jeep Safari" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2020/02/06/09/12/nature-4824389_960_720.jpg" alt="Trees" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2019/06/02/10/36/wildlife-4248043_960_720.jpg" alt="Wildlife" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2020/01/28/20/54/wildlife-4801996_960_720.jpg" alt="Animal" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showMoreImages() {
+      document.getElementById("moreImages").classList.remove("hidden");
+      event.target.closest('.gallery-item').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
